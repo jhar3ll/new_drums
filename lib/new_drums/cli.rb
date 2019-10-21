@@ -34,3 +34,5 @@ class NewDrums::CLI
    def goodbye
      puts "See you tomorrow for more new arrivals!"
    end 
+ end 
+ 
