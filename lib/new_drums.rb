@@ -1,6 +1,3 @@
-require "new_drums/version"
-
-module NewDrums
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./new_drums/version"
+require_relative './new_drums/item.rb'
+require_relative './new_drums/cli.rb'
