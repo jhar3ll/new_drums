@@ -21,7 +21,7 @@ class NewDrums::CLI
        
        if input.to_i > 0  
          the_item = @items[input.to_i - 1]
-        puts "#{the_item.name} \n #{the_item.description} \n url: (#{the_item.url})"
+        puts "#{the_item.name}\n #{the_item.description}\n url: (#{the_item.url})"
       elsif input == "list"
          list_items
        elsif input == "exit"

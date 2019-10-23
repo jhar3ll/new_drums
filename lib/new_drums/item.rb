@@ -20,10 +20,10 @@ class NewDrums::Item
     doc = Nokogiri::HTML(open("https://www.popads.net/"))
     
   
-    item = self.new 
-    item.name = doc.search("div.dark.bold").text.strip
+    item = self.new
+    item.name = doc.search("div.dark.bold").first.text.strip
     item.description = doc.search("div.spaced").first.text.strip
-    item.url = doc.search("a").attr("href")
+    item.url = doc.search("a.dark").first.attr("href")
     
     return item
   end
