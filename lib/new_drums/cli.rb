@@ -9,7 +9,7 @@ class NewDrums::CLI
     puts "This week's blogs"
     @items = NewDrums::Item.today 
     @items.each.with_index(1) do |item, index|
-      puts "#{index}. - #{item.name}"
+      puts "#{index}. - #{item.name} \n "
     end
   end  
 
@@ -21,7 +21,7 @@ class NewDrums::CLI
        
        if input.to_i > 0  
          the_item = @items[input.to_i - 1]
-        puts "#{the_item.name} - url: (#{the_item.url})"
+        puts "#{the_item.name} \n #{the_item.description} \n url: (#{the_item.url})"
       elsif input == "list"
          list_items
        elsif input == "exit"

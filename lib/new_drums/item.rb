@@ -1,5 +1,5 @@
 class NewDrums::Item 
- attr_accessor :name, :price, :url 
+ attr_accessor :name, :description, :url 
  
   def self.today 
     
@@ -21,8 +21,10 @@ class NewDrums::Item
     
   
     item = self.new 
-    item.name = doc.search("div.blog_item").text
-    item.url = doc.search("a.href")
+    item.name = doc.search("div.dark.bold").text.strip
+    item.description = doc.search("div.spaced").first.text.strip
+    item.url = doc.search("a").attr("href")
+    
     return item
   end
 end 
