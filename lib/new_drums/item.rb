@@ -19,16 +19,11 @@ class NewDrums::Item
   def self.scrape_popads
     doc = Nokogiri::HTML(open("https://www.popads.net/"))
     
-    blog_items = []
-    
-    doc.search("div.blog_items").map do |blog_item|
-    
     item = self.new
-    item.name = blog_item.search("div.dark.bold").first.text.strip
-    item.description = blog_item.search("div.spaced").first.text.strip
-    item.url = blog_item.search("a.dark").first.attr("href")
-    
-     end 
+    item.name = doc.search("div.dark.bold").first.text.strip
+    item.description = doc.search("div.spaced").first.text.strip
+    item.url = doc.search("a.dark").first.attr("href")
+   
     return item
   end
 end 
