@@ -41,3 +41,13 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the NewDrums project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'Legit'/new_drums/blob/master/CODE_OF_CONDUCT.md).
+
+## Description 
+
+This program scrapes three blogs from a webpage and allows the user to interact with and get more information about each blog if they wish to do so.
+
+## Running program
+
+CD into "new_drums"
+run "./bin/new-drums"
+follow program instructions
