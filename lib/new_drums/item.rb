@@ -10,45 +10,25 @@ class NewDrums::Item
   
   def self.scrape_items
     items = []
-    items << self.scrape_popads1
-    items << scrape_popads2
-    items << scrape_popads3
-    
+    items << self.scrape_popads
     
     return items
  end
  
  
-  def self.scrape_popads1
+  def self.scrape_popads
     doc = Nokogiri::HTML(open("https://www.popads.net/"))
     
-    item = self.new
-    item.name = doc.search("div.dark.bold").first.text.strip
-    item.description = doc.search("div.spaced").first.text.strip
-    item.url = doc.search("a.dark").first.attr("href")
+    blog_items = []
     
-    return item
-  end
-  
-  def self.scrape_popads2
-    doc = Nokogiri::HTML(open("https://www.popads.net/"))
+    doc.search("div.blog_items").map do |blog_item|
     
     item = self.new
-    item.name = doc.search("div.dark.bold").text.strip
-    item.description = doc.search("div.spaced").text.strip
-    item.url = doc.search("a.dark").first.attr("href")
+    item.name = blog_item.search("div.dark.bold").first.text.strip
+    item.description = blog_item.search("div.spaced").first.text.strip
+    item.url = blog_item.search("a.dark").first.attr("href")
     
-    return item
-  end
-  
-  def self.scrape_popads3
-    doc = Nokogiri::HTML(open("https://www.popads.net/"))
-    
-    item = self.new
-    item.name = doc.search("div.dark.bold").text.strip
-    item.description = doc.search("div.spaced").text.strip
-    item.url = doc.search("a.dark").first.attr("href")
-    
+     end 
     return item
   end
 end 
