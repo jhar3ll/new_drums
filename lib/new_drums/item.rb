@@ -10,20 +10,19 @@ class NewDrums::Item
   
   def self.scrape_items
     items = []
-    items << self.scrape_sweetwater
+    items << self.scrape_popads
     
     return items
  end
  
  
-  def self.scrape_sweetwater
-    doc = Nokogiri::HTML(open("https://www.sweetwater.com/nowshipping/Drums"))
+  def self.scrape_popads
+    doc = Nokogiri::HTML(open("https://www.popads.net/"))
     
   
     item = self.new 
-    item.name = doc.search("strong.product-block__title").text
-    item.price = doc.search("#grid em.product__price").text
-    
+    item.name = doc.search("div.blog_item").text
+    item.url = doc.search("a.href")
     return item
   end
 end 
