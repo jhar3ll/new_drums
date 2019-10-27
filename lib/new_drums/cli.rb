@@ -6,7 +6,7 @@ class NewDrums::CLI
   end 
 
   def list_items
-    puts "This week's blogs"
+    puts "This week's blog posts! \n\n"
     @items = NewDrums::Item.today 
     @items.each.with_index(1) do |item, index|
       puts "#{index}. - #{item.name} \n "
