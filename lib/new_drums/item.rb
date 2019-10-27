@@ -20,4 +20,16 @@ class NewDrums::Item
     end 
     return items
   end
+  
+  def self.search_by_word(word)
+    #search through items and find any items whose title contains the word
+  end 
 end 
+
+# refactor to use class variables, instance variables, and an initialize method  
+
+# review scope and class vs instance methods 
+
+# refactor so that the user sees the entire blogpost title 
+
+
